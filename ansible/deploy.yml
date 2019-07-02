@@ -1,0 +1,23 @@
+---
+- name: Deploy PHP app to the LB GCP production
+  hosts: all
+  remote_user: gcp
+  become: true
+
+  tasks:
+
+    - name:  PHP installation
+      yum:
+        name: php
+        state: present
+
+    - name:  Uploading source
+      copy:
+        src: ./php/
+        dest: /var/www/html
+
+    - name:  Restarting of the HTTPD service
+      service:
+        name: httpd
+        state: restarted
+  

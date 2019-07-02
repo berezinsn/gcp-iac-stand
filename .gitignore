@@ -1,0 +1,5 @@
+.idea
+terraform/.terraform/plugins
+auth/account.json
+packer/auth/id_rsa.pub
+packer/gce_googlecompute.pem

@@ -1,0 +1,21 @@
+* {
+font-family: Georgia, serif;
+font-size: 25px;
+letter-spacing: 6px;
+word-spacing: 5.8px;
+color: #000000;
+font-weight: 400;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: small-caps;
+text-transform: lowercase;
+margin: 0;
+padding: 0;
+color: #FFFFFF;
+background: #232323;
+}
+
+a:hover {
+color: #FFFFFF;
+text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+}

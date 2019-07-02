@@ -1,0 +1,38 @@
+{
+  "variables": {
+      "account_file": "{{env `GOOGLE_APPLICATION_CREDENTIALS`}}",
+      "project_id": "{{env `TF_VAR_GP`}}",
+      "zone": "europe-west1-b",
+      "username": "gcp"
+  },
+
+  "builders": [
+    { 
+      "type": "googlecompute",
+      "account_file": "{{user `account_file`}}",
+      "project_id": "{{user `project_id`}}",
+      "source_image_family": "centos-7",
+      "zone": "{{user `zone`}}",
+      "image_name": "gcp-centos7-apache",
+      "machine_type": "f1-micro",
+      "ssh_username": "terraform"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "./auth/id_rsa.pub",
+      "destination": "/tmp/"
+    },
+    { 
+      "type": "file",
+      "source": "./install.sh",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "shell",
+      "inline": ["sudo bash /tmp/install.sh {{user `username`}}"]        
+    }
+  ]
+}
